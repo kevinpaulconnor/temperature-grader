@@ -1,0 +1,24 @@
+version: '3'
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: ./Dockerfile-compose.local
+    ports:
+      - 3000:3000
+    command: npm start
+    volumes:
+      - "./src:/app/src"
+
+  test:
+    build:
+      context: .
+      dockerfile: ./Dockerfile-compose.local
+    environment:
+      - CI=true
+    command: npm test
+
+  prod:
+    build:
+      context: .
+  
