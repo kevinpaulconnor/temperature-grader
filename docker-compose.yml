@@ -3,7 +3,7 @@ services:
   dev:
     build:
       context: .
-      dockerfile: ./Dockerfile-compose.local
+      dockerfile: ./Dockerfile.local
     ports:
       - 3000:3000
     command: npm start
@@ -13,7 +13,7 @@ services:
   test:
     build:
       context: .
-      dockerfile: ./Dockerfile-compose.local
+      dockerfile: ./Dockerfile.local
     environment:
       - CI=true
     command: npm test
