@@ -1,3 +1,39 @@
 .App {
   text-align: center;
 }
+
+.temperature-grader {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.conversionRow, .conversion-row-header {
+  display:flex;
+  border: 1px solid black;
+  margin: 5px;
+  justify-content: center;
+}
+
+.conversionRow span, .conversion-row-header h4 {
+  flex-basis: 16%;
+}
+
+.not-calculated, .correct, .incorrect, .invalid {
+  font-weight: bold;
+}
+
+.not-calculated {
+  color: gray;
+}
+
+.correct {
+  color: green;
+}
+
+.incorrect {
+  color: red;
+}
+
+.invalid {
+  color: orange;
+}
