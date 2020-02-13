@@ -69,7 +69,7 @@ jobs:
       id: task-def
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
-        task-definition: first-run-task-definition.json
+        task-definition: react-temperature-grader.json
         container-name: sample-app
         image: ${{ steps.build-image.outputs.image }}
 
@@ -77,6 +77,6 @@ jobs:
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: temperature-grader-service
-        cluster: default
+        service: react-temperature-grader
+        cluster: react
         wait-for-service-stability: true
