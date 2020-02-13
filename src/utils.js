@@ -8,7 +8,8 @@ export const UNITS = {
 export const RESULTS = {
     "CORRECT": "CORRECT",
     "INCORRECT": "INCORRECT",
-    "INVALID": "INVALID"
+    "INVALID": "INVALID",
+    "NOTCALCULATED": "NOTCALCULATED"
 }
 
 // we know we have rounded the inputs to ones, and know that the
