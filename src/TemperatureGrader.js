@@ -72,9 +72,8 @@ export const TemperatureGrader = () => {
             </div>
             {rows}
             </div>
-            <button>Add New Grading Row</button>
-            <button>Clear All Row Values</button>
-            <button>Clear All Rows</button>
+            <button onClick={() => {setRowCount(rowCount + 1)}}>Add New Grading Row</button>
+            <button onClick={() => {setRowCount(0)}}>Clear All Rows</button>
         </div>
     );
 }
