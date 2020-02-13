@@ -16,8 +16,8 @@ export const RESULTS = {
 // therefore we should be safe to multiply without running
 // into floating point precision errors,
 // as these constants will be the only floats
-const fiveNinths = .55;
-const nineFifths = 1.8;
+const fiveNinths = 5 / 9;
+const nineFifths = 9 / 5;
 const conversionFxns = {
     "CELSIUS": {
         "FAHRENHEIT": (value) =>{
