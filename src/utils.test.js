@@ -43,4 +43,8 @@ it ('handles zero, which can be weird, and should also give us some reasonable e
     expect(convertTemperature(UNITS.RANKINE, 0, UNITS.CELSIUS, -273)).toEqual(RESULTS.CORRECT);//expect(convertTemperature(UNITS.CELSIUS, -45.14, UNITS.KELVIN, 227.51)).toEqual(RESULTS.CORRECT);
 });
 
+it ('should return invalid on NaN input', () => {
+    expect(convertTemperature(UNITS.CELSIUS, Number("cat"), UNITS.KELVIN, 1)).toEqual(RESULTS.INVALID);
+});
+
 // fuzz tests would be interesting to add for this method

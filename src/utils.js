@@ -100,10 +100,10 @@ export function convertTemperature(inputUnit, input, targetUnit, target) {
     if (UNITS[inputUnit] === undefined || UNITS[targetUnit] === undefined) {
         return RESULTS.INVALID;
     }
-    if (typeof(input) !== "number") {
+    if (typeof(input) !== "number" || Number.isNaN(input)) {
         return RESULTS.INVALID;
     }
-    if (typeof(target) !== "number") {
+    if (typeof(target) !== "number" || Number.isNaN(target)) {
         return RESULTS.INCORRECT;
     }
 
