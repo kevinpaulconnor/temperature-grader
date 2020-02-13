@@ -1,26 +1,50 @@
 import React, { useState } from 'react';
-import { UNITS, RESULTS} from './utils.js'
+import { UNITS, RESULTS, convertTemperature} from './utils.js'
 
-const TempOptions = () => {
+const TempOptions = (props) => {
     let options = [<option key="-1" value="-1">Please Choose a Temperature</option>];
     for (let unit of Object.keys(UNITS)) {
         options.push(<option key={unit} value={unit}>{unit}</option>);
     }
     return(
-    <select>{options}</select>
+    <select className={props.optionClass}>{options}</select>
     )
 }
 
 export const ConversionRow = () => {
+    const runTempConversion = (e) => {
+        // pull input values and run the method
+        const root = e.target.parentElement.parentElement;
+        const input = root.getElementsByClassName("form_input")[0].value;
+        const inputUnit= root.getElementsByClassName("form_inputUnit")[0].value;
+        const targetUnit = root.getElementsByClassName("form_targetUnit")[0].value;
+        const target = root.getElementsByClassName("form_target")[0].value;
+        setCalculationResult(convertTemperature(inputUnit, Number(input),
+            targetUnit, Number(target)));
+    }
+
     const [calculationResult, setCalculationResult] = useState(RESULTS.NOTCALCULATED);
-    let displayResult = <span className="not-calculated">Not Calculated</span>
+    let displayResult = '';
+    switch (calculationResult) {
+        case RESULTS.CORRECT:
+            displayResult = (<span className="correct">Correct!</span>);
+            break;
+        case RESULTS.INCORRECT:
+            displayResult = (<span className="incorrect">Incorrect!</span>);
+            break;
+        case RESULTS.INVALID:
+            displayResult = (<span className="invalid">Invalid!</span>);
+            break;
+        default:
+            displayResult = (<span className="not-calculated">Not Calculated</span>);   
+    }
     return (
         <div className="conversionRow">
-            <span><input placeholder="Input Temperature"></input></span>
-            <span><TempOptions /></span>
-            <span><TempOptions /></span>
-            <span><input placeholder="Student Response"></input></span>
-            <span><button>Calculate Row</button></span>
+            <span><input className="form_input"placeholder="Input Temperature"></input></span>
+            <span><TempOptions optionClass="form_inputUnit"/></span>
+            <span><TempOptions optionClass="form_targetUnit" /></span>
+            <span><input className="form_target" placeholder="Student Response"></input></span>
+            <span><button onClick={runTempConversion}>Calculate Row</button></span>
             {displayResult}
         </div>
     )
