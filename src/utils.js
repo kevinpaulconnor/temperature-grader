@@ -70,8 +70,8 @@ const conversionFxns = {
 function calculateConversion(inputUnit, input, targetUnit, roundedTarget) {
     let result = conversionFxns[inputUnit][targetUnit](input*100);
     result = roundToOnes(result / 100);
-    if (((result - 1) <= roundedTarget) &&
-        (roundedTarget <= (result + 1))) {
+    if (((result - 1) < roundedTarget) &&
+        (roundedTarget < (result + 1))) {
         return RESULTS.CORRECT;
     }
     return RESULTS.INCORRECT;
@@ -82,10 +82,14 @@ function roundToOnes(value) {
     // per the sample results in the spec, .5 should round down,
     // but toFixed rounds it up
     // so we need a special case
-    let splitString = value.toString().split('.');
+
+    // UPDATE: I was wrong about the above comment and below special case,
+    // misled by some wayward tests. leaving it in as a discussion point
+    // in the end, we probably could get by without roundToOnes
+    /*let splitString = value.toString().split('.');
     if ((splitString[1] - 5) === 0) {
         result--;
-    }
+    }*/
     return Number(result);
 }
 

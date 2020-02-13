@@ -29,12 +29,12 @@ it ('handles the example scenarios', () => {
 });
 
 it ('handles zero, which can be weird, and should also give us some reasonable expected correct case coverage', () => {
-    expect(convertTemperature(UNITS.FAHRENHEIT, 0, UNITS.CELSIUS, -17)).toEqual(RESULTS.CORRECT);
+    expect(convertTemperature(UNITS.FAHRENHEIT, 0, UNITS.CELSIUS, -18)).toEqual(RESULTS.CORRECT);
     expect(convertTemperature(UNITS.FAHRENHEIT, 0, UNITS.KELVIN, 255)).toEqual(RESULTS.CORRECT);
     expect(convertTemperature(UNITS.FAHRENHEIT, 0, UNITS.RANKINE, 460)).toEqual(RESULTS.CORRECT);
     expect(convertTemperature(UNITS.CELSIUS, 0, UNITS.FAHRENHEIT, 32)).toEqual(RESULTS.CORRECT);
     expect(convertTemperature(UNITS.CELSIUS, 0, UNITS.KELVIN, 273)).toEqual(RESULTS.CORRECT);
-    expect(convertTemperature(UNITS.CELSIUS, 0, UNITS.RANKINE, 491)).toEqual(RESULTS.CORRECT);
+    expect(convertTemperature(UNITS.CELSIUS, 0, UNITS.RANKINE, 492)).toEqual(RESULTS.CORRECT);
     expect(convertTemperature(UNITS.KELVIN, 0, UNITS.FAHRENHEIT, -460)).toEqual(RESULTS.CORRECT);
     expect(convertTemperature(UNITS.KELVIN, 0, UNITS.CELSIUS, -273)).toEqual(RESULTS.CORRECT);
     expect(convertTemperature(UNITS.KELVIN, 0, UNITS.RANKINE, 0)).toEqual(RESULTS.CORRECT);
