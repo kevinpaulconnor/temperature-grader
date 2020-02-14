@@ -41,3 +41,5 @@ I wanted to get these containers on AWS, as I know that you guys use AWS and I w
 But, I didn't want to be completely tied into the AWS ecosystem, so I wanted to avoid something like AWS CodePipeline for CI/CD. With CircleCi and Github Actions controlling the integration and deployment, it would be relatively easy to move this container to a different provider.
 
 I really enjoyed working on this project; there are a lot of subtleties with working with the floating point conversions that are tricky, and I look forward to discussing it with you tomorrow. I hate whiteboard programming, so I'm excited that you guys are using this process for judging technical ability, and I don't mind making the extra time commitment. I think it's a great way to let candidates show you what we can do! Looking forward to tomorrow.
+
+Version 0.1.0 (versioning to retest Fargate deploy)
