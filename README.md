@@ -28,7 +28,7 @@ Build and serve a production build locally:
 $ docker-compose build prod
 You'll then want to expose port 80 on a local port with something like:
 $ docker-compose run prod -p 8080:80
-and then you can run locally on 
+and then you can run locally on localhost:8080
 
 CI/CD Notes on decision-making:
 
