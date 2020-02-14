@@ -18,6 +18,14 @@ services:
       - CI=true
     command: npm test
 
+  watch-test:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.local
+    command: npm test
+    volumes:
+      - "./src:/app/src"
+
   prod:
     build:
       context: .
